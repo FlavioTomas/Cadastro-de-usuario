@@ -1,14 +1,14 @@
-import { Title } from "./styles"
+import { Title, Container } from "./styles"
 
 
 function App() {
 
   return (
-      <div>
+      <Container>
 
       <Title>Vite + React</Title>
 
-      </div>
+      </Container>
   )
 }
 
