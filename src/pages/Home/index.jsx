@@ -1,8 +1,10 @@
 import { useRef } from "react"
+import api from '../../services/api'
 
 import { Title, Container, ImgBackground, Form, ContainerInputs, Input, Button, InputLabel } from "./styles"
 
 import UsersImg from '../../assets/users.png'
+
 
 
 function Home() {
@@ -13,12 +15,16 @@ function Home() {
 
 
 
-  const registerNewUser = () => {
-    console.log(inputName)
+  const registerNewUser = async () => {
+    await api.post('/users', {
+      email: inputEmail.current.value,
+      age: parseInt(inputAge.current.value),
+      name: inputName.current.value
+    })
   }
 
 
-  
+
 
   return (
     <Container>
@@ -38,22 +44,22 @@ function Home() {
             <InputLabel>
               Nome <span>*</span>
             </InputLabel>
-            <Input type="text" placeholder="Nome do usuário" ref={inputName}/>
+            <Input type="text" placeholder="Nome do usuário" ref={inputName} />
           </div>
           <div>
             <InputLabel>
               Idade <span>*</span>
             </InputLabel>
-            <Input type="number" placeholder="Idade do usuário" ref={inputAge}/>
+            <Input type="number" placeholder="Idade do usuário" ref={inputAge} />
           </div>
         </ContainerInputs>
 
 
-        <div style={{width: '100%'}}>
+        <div style={{ width: '100%' }}>
           <InputLabel>
             E-mail <span>*</span>
           </InputLabel>
-          <Input type="email" placeholder="E-mail do usuário" ref={inputEmail}/>
+          <Input type="email" placeholder="E-mail do usuário" ref={inputEmail} />
         </div>
 
         <Button type="button" onClick={registerNewUser}>Cadastrar Usuário</Button>
