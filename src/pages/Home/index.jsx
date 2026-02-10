@@ -1,9 +1,10 @@
 import { useRef } from "react"
 import api from '../../services/api'
 
-import { Title, Container, ImgBackground, Form, ContainerInputs, Input, Button, InputLabel } from "./styles"
+import { Title, Container, ImgBackground, Form, ContainerInputs, Input, InputLabel } from "./styles"
 
 import UsersImg from '../../assets/users.png'
+import DefaultButton from "../../components/Button"
 
 
 
@@ -62,7 +63,7 @@ function Home() {
           <Input type="email" placeholder="E-mail do usuário" ref={inputEmail} />
         </div>
 
-        <Button type="button" onClick={registerNewUser}>Cadastrar Usuário</Button>
+        <DefaultButton type="button" onClick={registerNewUser}>Cadastrar Usuário</DefaultButton>
 
       </Form>
 
