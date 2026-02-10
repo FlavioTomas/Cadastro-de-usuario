@@ -1,10 +1,12 @@
 import { useRef } from "react"
 import api from '../../services/api'
 
-import { Title, Container, ImgBackground, Form, ContainerInputs, Input, InputLabel } from "./styles"
+import { Title, Form, ContainerInputs, Input, InputLabel } from "./styles"
 
 import UsersImg from '../../assets/users.png'
 import DefaultButton from "../../components/Button"
+import DefaultImgBackground from "../../components/ImgBackground"
+import DefaultContainer from "../../components/Container"
 
 
 
@@ -28,11 +30,11 @@ function Home() {
 
 
   return (
-    <Container>
+    <DefaultContainer>
 
-      <ImgBackground>
+      <DefaultImgBackground>
         <img src={UsersImg} alt="image-users" />
-      </ImgBackground>
+      </DefaultImgBackground>
 
 
 
@@ -70,7 +72,7 @@ function Home() {
 
 
 
-    </Container>
+    </DefaultContainer>
   )
 }
 
