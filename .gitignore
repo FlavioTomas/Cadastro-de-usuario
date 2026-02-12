@@ -1,4 +1,25 @@
-# Logs
+# --- DEPENDÊNCIAS ---
+node_modules
+/frontend/node_modules
+/backend/node_modules
+yarn.lock
+pnpm-lock.yaml
+
+# --- ARQUIVOS DE PRODUÇÃO (BUILD) ---
+dist
+dist-ssr
+build
+out
+
+# --- SEGURANÇA E AMBIENTE (MUITO IMPORTANTE) ---
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+
+# --- LOGS ---
 logs
 *.log
 npm-debug.log*
@@ -7,16 +28,16 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# --- ARQUIVOS DE SISTEMA ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# Editor directories and files
+# --- IDE / EDITOR ---
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
