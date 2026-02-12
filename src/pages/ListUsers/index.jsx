@@ -7,8 +7,11 @@ import api from '../../services/api'
 import { useEffect, useState } from 'react'
 import DefaultTitle from '../../components/Titles'
 import { AvatarUser, CardUsers, ContainerUsers, TrashIcon } from './styles'
+import { IoIosMore } from "react-icons/io";
 
 import Trash from '../../assets/trash.svg'
+
+
 
 
 function ListUsers() {
@@ -20,29 +23,30 @@ function ListUsers() {
     useEffect(() => {
 
         async function getUsers() {
-        try {
-            const { data: usersFromApi } = await api.get('/users');
+            try {
+                const { data: usersFromApi } = await api.get('/users');
 
-            const formattedUsers = usersFromApi.map(user => {
-                return {
-                    ...user, 
-                    name: user.name.toLowerCase()
-                };
-            });
-            setUsers(formattedUsers);
+                const formattedUsers = usersFromApi.map(user => {
+                    return {
+                        ...user,
+                        name: user.name.toLowerCase()
+                    };
+                });
+                setUsers(formattedUsers);
 
-        } catch (error) {
-            console.error("Falha ao buscar ou formatar usuários:", error);
+            } catch (error) {
+                console.error("Falha ao buscar ou formatar usuários:", error);
+            }
         }
-    }
         getUsers()
     }, [])
 
 
 
+
     async function deleteUsers(id) {
         await api.delete(`/users/${id}`)
-        
+
         const updatedUsers = users.filter(user => user.id !== id)
 
         setUsers(updatedUsers)
@@ -69,7 +73,8 @@ function ListUsers() {
                             <p>{user.email}</p>
                             <p>{user.age}</p>
                         </div>
-                        <TrashIcon src={Trash} onClick={() => deleteUsers(user.id)} alt='trash-icon'/>
+                        <TrashIcon src={Trash} onClick={() => deleteUsers(user.id)} alt='trash-icon' />
+                        <IoIosMore size={38} className='edit-icon'></IoIosMore>
                     </CardUsers>
                 ))}
             </ContainerUsers>

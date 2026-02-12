@@ -10,6 +10,20 @@ export const ContainerUsers = styled.div`
     @media (max-width: 750px){
         grid-template-columns: 1fr;
     }
+
+
+    .edit-icon {
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .edit-icon:hover {
+        opacity: .8;
+    }
+
+    .edit-icon:active {
+        opacity: .5;
+    }
 `
 
 
@@ -55,4 +69,9 @@ export const TrashIcon = styled.img`
 export const AvatarUser = styled.img`
     height: 80px;
     border-radius: 50%;
+`
+
+
+export const EditCard = styled.span`
+
 `
