@@ -8,5 +8,6 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-evenly;
     gap: 20px;
-    height:100vh
+    min-height:100vh;
+    padding: 20px 0;
 `

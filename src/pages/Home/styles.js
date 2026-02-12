@@ -7,22 +7,13 @@ export const Form = styled.form`
     flex-direction: column;
     align-items: center; 
     gap: 20px;
-    max-width: 500px;
-`
-
-
-export const Title = styled.h1`
-    color: #fff;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: bold;
+    max-width: 90%;
 `
 
 
 export const ContainerInputs = styled.div`
     display: flex;
     gap:20px;
-
 `
 
 

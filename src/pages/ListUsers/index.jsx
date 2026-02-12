@@ -5,21 +5,50 @@ import { useNavigate } from 'react-router-dom'
 import DefaultButton from '../../components/Button'
 import api from '../../services/api'
 import { useEffect, useState } from 'react'
+import DefaultTitle from '../../components/Titles'
+import { AvatarUser, CardUsers, ContainerUsers, TrashIcon } from './styles'
 
+import Trash from '../../assets/trash.svg'
 
 
 function ListUsers() {
     const navigate = useNavigate()
-    const [ users, setUsers ] = useState([])
+    const [users, setUsers] = useState([])
+
+
 
     useEffect(() => {
 
         async function getUsers() {
-            const { data } = await api.get('/users')
-            setUsers(data)
+        try {
+            const { data: usersFromApi } = await api.get('/users');
+
+            const formattedUsers = usersFromApi.map(user => {
+                return {
+                    ...user, 
+                    name: user.name.toLowerCase()
+                };
+            });
+            setUsers(formattedUsers);
+
+        } catch (error) {
+            console.error("Falha ao buscar ou formatar usuários:", error);
         }
+    }
         getUsers()
     }, [])
+
+
+
+    async function deleteUsers(id) {
+        await api.delete(`/users/${id}`)
+        
+        const updatedUsers = users.filter(user => user.id !== id)
+
+        setUsers(updatedUsers)
+    }
+
+
 
 
 
@@ -28,16 +57,22 @@ function ListUsers() {
 
         <DefaultContainer>
             <DefaultImgBackground><img src={UsersImg} alt="image-users" /></DefaultImgBackground>
-            <h1>Listagem de Usuários</h1>
+            <DefaultTitle>Listagem de Usuários</DefaultTitle>
 
 
-            {users.map( user => (
-                <div>
-                    <p>{user.name}</p>
-                    <p>{user.email}</p>
-                    <p>{user.age}</p>
-                </div>
-            ))}
+            <ContainerUsers>
+                {users.map(user => (
+                    <CardUsers key={user.id}>
+                        <AvatarUser src={`https://robohash.org/${user.id}.png`}></AvatarUser>
+                        <div>
+                            <h3>{user.name}</h3>
+                            <p>{user.email}</p>
+                            <p>{user.age}</p>
+                        </div>
+                        <TrashIcon src={Trash} onClick={() => deleteUsers(user.id)} alt='trash-icon'/>
+                    </CardUsers>
+                ))}
+            </ContainerUsers>
 
 
             <DefaultButton type="button" onClick={() => navigate('/')}>Voltar</DefaultButton>
