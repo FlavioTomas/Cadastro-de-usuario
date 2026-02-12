@@ -4,10 +4,13 @@ Este é um projeto de estudo desenvolvido para praticar a integração entre Fro
 
 O sistema permite o cadastro, listagem, edição e exclusão de usuários em tempo real.
 
-## 📸 Prévia
+## 📸 Telas do Sistema
 
-![Preview do Projeto](./preview.png)
-*(Substitua "preview.png" pelo caminho da sua imagem ou gif na pasta do projeto)*
+### Cadastro de Usuário
+![Tela de Cadastro](./Frontend/src/assets/preview1.png)
+
+### Listagem de Usuários
+![Tela de Listagem](./Frontend/src/assets/preview2.png)
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -104,5 +107,5 @@ O terminal mostrará um link (geralmente `http://localhost:5173`). Clique nele p
 
 ## 👨‍💻 Autor
 
-Feito por **[Seu Nome]**.
+Feito por **Flávio Tomás Peña Villa**.
 Projeto de estudo Full Stack.
