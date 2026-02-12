@@ -48,6 +48,20 @@ export const CardUsers = styled.div`
         color: #fff;
         font-size: .8rem;
     }
+
+    input {
+        background: #252d48;
+        border: 1px solid #777777;
+        border-radius: 5px;
+        padding: 3px;
+        margin: 1px;
+        color: #fff;
+        width:100%;
+    }
+
+    input::placeholder {
+            color: #e6e6e6;
+        }
 `
 
 
@@ -69,9 +83,14 @@ export const TrashIcon = styled.img`
 export const AvatarUser = styled.img`
     height: 80px;
     border-radius: 50%;
+
 `
 
 
 export const EditCard = styled.span`
 
 `
+
+export const NameInput = styled.input``
+export const EmailInput = styled.input``
+export const AgeInput = styled.input``
